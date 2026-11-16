@@ -36,6 +36,8 @@ python -m http.server 8000
 
 開啟 http://localhost:8000/。
 
+##之後使用githubpages不在本機上使用
+
 ## 新增一篇文章
 
 1. 把 Goodnotes 匯出的 PDF 提供給 AI。
