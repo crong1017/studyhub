@@ -1,0 +1,725 @@
+[
+  {
+    "id": "cs-logic-gates",
+    "category": "cs",
+    "title": "邏輯閘與真值表",
+    "subtitle": "NOT、AND、OR、XOR 與衍生邏輯閘",
+    "level": "入門",
+    "minutes": 5,
+    "summary": "用輸入與輸出真值表理解邏輯閘，掌握常見布林運算與反相關係。",
+    "tags": [
+      "邏輯電路",
+      "Boolean",
+      "真值表",
+      "XOR"
+    ],
+    "source": "CH3計概邏輯電路.pdf",
+    "sourceType": "Goodnotes 手寫筆記整理",
+    "updated": "2026-11-16",
+    "sections": [
+      {
+        "heading": "核心概念",
+        "paragraphs": [
+          "數位邏輯通常以 0、1 表示假與真。邏輯閘依輸入位元計算輸出，可以用邏輯符號、布林代數及真值表三種方式描述。"
+        ],
+        "bullets": [
+          "NOT：輸出輸入的相反值。",
+          "AND：兩個輸入都為 1 才輸出 1。",
+          "OR：只要至少一個輸入為 1 就輸出 1。",
+          "XOR：輸入不同時輸出 1；相同時輸出 0。"
+        ]
+      },
+      {
+        "heading": "二輸入真值表",
+        "paragraphs": [
+          "以 A、B 為輸入，可以列出所有四種組合，逐一檢查邏輯運算。"
+        ],
+        "table": {
+          "headers": [
+            "A",
+            "B",
+            "AND",
+            "OR",
+            "XOR",
+            "NAND",
+            "NOR",
+            "XNOR"
+          ],
+          "rows": [
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1",
+              "1",
+              "1"
+            ],
+            [
+              "0",
+              "1",
+              "0",
+              "1",
+              "1",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "1",
+              "0",
+              "0",
+              "1",
+              "1",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "1",
+              "1",
+              "1",
+              "1",
+              "0",
+              "0",
+              "0",
+              "1"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "容易混淆的反相邏輯閘",
+        "bullets": [
+          "NAND = NOT(AND)：除了 1 AND 1 以外，輸出皆為 1。",
+          "NOR = NOT(OR)：只有 A 與 B 都為 0 時輸出 1。",
+          "XNOR = NOT(XOR)：兩個輸入相同時輸出 1。"
+        ],
+        "example": "快速記憶：XOR 看「是否不同」，XNOR 看「是否相同」。"
+      },
+      {
+        "heading": "考試練習",
+        "example": "若 A=1、B=0，則 A XOR B=1，A XNOR B=0，A NAND B=1。建議先寫真值表再化簡電路。"
+      }
+    ]
+  },
+  {
+    "id": "cs-number-systems",
+    "category": "cs",
+    "title": "進位制與二補數",
+    "subtitle": "二進位、十六進位、負數表示法",
+    "level": "入門",
+    "minutes": 6,
+    "summary": "從 4-bit 表格開始理解數字表示、進位制換算與二補數的計算流程。",
+    "tags": [
+      "Binary",
+      "Hex",
+      "二補數",
+      "位元"
+    ],
+    "source": "數字-補數-浮點數.pdf",
+    "sourceType": "Goodnotes 手寫筆記整理",
+    "updated": "2026-11-16",
+    "sections": [
+      {
+        "heading": "進位制的基本觀念",
+        "paragraphs": [
+          "一個 n 位元的無號二進位數，數值範圍是 0 到 2ⁿ−1。十六進位的每個數位剛好對應四個二進位位元。"
+        ],
+        "bullets": [
+          "二進位（Base 2）：使用 0、1。",
+          "十進位（Base 10）：使用 0 至 9。",
+          "十六進位（Base 16）：使用 0–9 與 A–F。"
+        ]
+      },
+      {
+        "heading": "4-bit 對照表",
+        "table": {
+          "headers": [
+            "二進位",
+            "十進位",
+            "十六進位"
+          ],
+          "rows": [
+            [
+              "0000",
+              "0",
+              "0"
+            ],
+            [
+              "0001",
+              "1",
+              "1"
+            ],
+            [
+              "0010",
+              "2",
+              "2"
+            ],
+            [
+              "0011",
+              "3",
+              "3"
+            ],
+            [
+              "0100",
+              "4",
+              "4"
+            ],
+            [
+              "0101",
+              "5",
+              "5"
+            ],
+            [
+              "0110",
+              "6",
+              "6"
+            ],
+            [
+              "0111",
+              "7",
+              "7"
+            ],
+            [
+              "1000",
+              "8",
+              "8"
+            ],
+            [
+              "1001",
+              "9",
+              "9"
+            ],
+            [
+              "1010",
+              "10",
+              "A"
+            ],
+            [
+              "1011",
+              "11",
+              "B"
+            ],
+            [
+              "1100",
+              "12",
+              "C"
+            ],
+            [
+              "1101",
+              "13",
+              "D"
+            ],
+            [
+              "1110",
+              "14",
+              "E"
+            ],
+            [
+              "1111",
+              "15",
+              "F"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "二補數如何表示負數",
+        "paragraphs": [
+          "對固定 n 位元的正數二進位表示，逐位取反再加 1，就得到其負數的二補數表示。需先確定使用的位元寬度。"
+        ],
+        "example": "以 8-bit 表示 −5：+5 = 00000101 → 逐位取反 = 11111010 → 加 1 = 11111011。"
+      },
+      {
+        "heading": "考試提醒",
+        "bullets": [
+          "有號二補數 n 位元範圍為 −2ⁿ⁻¹ 到 2ⁿ⁻¹−1。",
+          "固定寬度內的運算可能發生溢位；不能僅看最左邊位元就判斷結果正確。",
+          "IEEE 754 浮點數另有符號位、指數與尾數，應與整數二補數分開整理。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ds-stack-queue",
+    "category": "ds",
+    "title": "Stack 與 Queue",
+    "subtitle": "LIFO、FIFO、Push／Pop、Enqueue／Dequeue",
+    "level": "必讀",
+    "minutes": 7,
+    "summary": "用操作順序與陣列示例，理解堆疊與佇列的差異以及典型演算法應用。",
+    "tags": [
+      "Stack",
+      "Queue",
+      "LIFO",
+      "FIFO",
+      "C"
+    ],
+    "source": "CH3 Stack -Queue.pdf",
+    "sourceType": "Goodnotes 手寫筆記整理",
+    "updated": "2026-11-16",
+    "sections": [
+      {
+        "heading": "Stack（堆疊）",
+        "paragraphs": [
+          "Stack 遵守 LIFO（Last In, First Out，後進先出）。新增與刪除都發生在頂端 top。"
+        ],
+        "bullets": [
+          "push(x)：把 x 放到頂端。",
+          "pop()：移除並回傳頂端元素。",
+          "peek()：取得頂端，但不移除。",
+          "isEmpty()：判斷 Stack 是否為空。"
+        ],
+        "example": "依序 push(1)、push(2)、push(3)，接著 pop() 依序得到 3、2、1。"
+      },
+      {
+        "heading": "陣列實作示例（C 風格虛擬碼）",
+        "paragraphs": [
+          "以 top = -1 表示空堆疊。push 時先增加 top 再放值；pop 時先取值再降低 top。"
+        ],
+        "code": "int top = -1;\nint stack[MAX];\n\nvoid push(int x) {\n    if (top == MAX - 1) return; // overflow\n    stack[++top] = x;\n}\n\nint pop() {\n    if (top == -1) return ERROR; // underflow\n    return stack[top--];\n}"
+      },
+      {
+        "heading": "Queue（佇列）",
+        "paragraphs": [
+          "Queue 遵守 FIFO（First In, First Out，先進先出）。新增從 rear 進入，刪除從 front 移出。"
+        ],
+        "example": "依序 enqueue(A)、enqueue(B)、enqueue(C)，則 dequeue() 先取出 A。"
+      },
+      {
+        "heading": "考試常見應用",
+        "table": {
+          "headers": [
+            "Stack",
+            "Queue"
+          ],
+          "rows": [
+            [
+              "括號配對、運算式轉換",
+              "BFS 廣度優先搜尋"
+            ],
+            [
+              "DFS 深度優先搜尋",
+              "工作排隊、緩衝區"
+            ],
+            [
+              "遞迴呼叫堆疊",
+              "先到先服務排程"
+            ]
+          ]
+        },
+        "bullets": [
+          "基本 push/pop 與 enqueue/dequeue 若設計得當，時間複雜度可達 O(1)。",
+          "陣列 Queue 若不循環使用，容易浪費前段已釋放空間；Circular Queue 可改善。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ds-hashing",
+    "category": "ds",
+    "title": "Hash Table 與碰撞",
+    "subtitle": "Hash Function、Bucket、Collision、Load Factor",
+    "level": "核心",
+    "minutes": 6,
+    "summary": "理解鍵值如何映射到雜湊表，並區分碰撞、載入因子與處理策略。",
+    "tags": [
+      "Hashing",
+      "Hash Table",
+      "Collision",
+      "Bucket"
+    ],
+    "source": "CH7 Hashing.pdf",
+    "sourceType": "Goodnotes 手寫筆記整理",
+    "updated": "2026-11-16",
+    "sections": [
+      {
+        "heading": "Hashing 是什麼？",
+        "paragraphs": [
+          "Hashing 透過雜湊函數，把 key 映射到表格中的一個位置（hash address）。查詢時，使用同樣函數找到候選位置，再比較 key 是否相符。"
+        ],
+        "example": "假設 table size = 7、h(k) = k mod 7；key = 17 的候選索引是 3。"
+      },
+      {
+        "heading": "三個重點名詞",
+        "bullets": [
+          "Bucket／Slot：用來儲存資料的桶與位置；實際實作中定義可能不同。",
+          "Collision（碰撞）：不同 key 映射到同一索引。",
+          "Load Factor（載入因子）α = 已儲存元素數 ÷ 表格槽位數；過高可能降低效能。"
+        ]
+      },
+      {
+        "heading": "碰撞要怎麼處理？",
+        "table": {
+          "headers": [
+            "策略",
+            "概念",
+            "注意事項"
+          ],
+          "rows": [
+            [
+              "Separate Chaining",
+              "每個 bucket 保存一條串列或其他集合",
+              "查找長度受分布影響"
+            ],
+            [
+              "Linear Probing",
+              "碰撞時依序試下一個槽位",
+              "可能產生 primary clustering"
+            ],
+            [
+              "Quadratic Probing",
+              "依二次位移試探",
+              "需留意表大小與探測覆蓋範圍"
+            ]
+          ]
+        },
+        "paragraphs": [
+          "上述碰撞處理方法是延伸補充，協助把筆記中的 Collision 定義連到常見考題。"
+        ]
+      },
+      {
+        "heading": "複雜度與陷阱",
+        "bullets": [
+          "理想雜湊分布下，插入與查找平均可接近 O(1)。",
+          "最差情況下，許多 key 全部碰撞，操作可能退化到 O(n)。",
+          "Hash Function 並非保證不碰撞；重點是分布均勻與適當的處理策略。"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ds-graph-search",
+    "category": "ds",
+    "title": "Graph：BFS 與 DFS",
+    "subtitle": "相鄰矩陣、相鄰串列與走訪順序",
+    "level": "核心",
+    "minutes": 8,
+    "summary": "理解圖形表示法，以及 BFS 使用 Queue、DFS 使用 Stack／遞迴的原因。",
+    "tags": [
+      "Graph",
+      "BFS",
+      "DFS",
+      "Adjacency List"
+    ],
+    "source": "CH8 Graph.pdf",
+    "sourceType": "Goodnotes 手寫筆記整理",
+    "updated": "2026-11-16",
+    "sections": [
+      {
+        "heading": "Graph 的基本組成",
+        "paragraphs": [
+          "圖形 G=(V,E)，V 是頂點集合，E 是邊集合。圖形可為有向或無向，也能有權重。"
+        ],
+        "bullets": [
+          "無向完整圖最多有 n(n−1)/2 條邊。",
+          "有向且不包含自環的完整圖最多有 n(n−1) 條邊。",
+          "Path 由連續相鄰頂點構成；Cycle 是起點與終點相同的路徑。"
+        ]
+      },
+      {
+        "heading": "相鄰矩陣與相鄰串列",
+        "table": {
+          "headers": [
+            "",
+            "Adjacency Matrix",
+            "Adjacency List"
+          ],
+          "rows": [
+            [
+              "儲存空間",
+              "O(V²)",
+              "O(V+E)"
+            ],
+            [
+              "檢查 (u,v) 是否有邊",
+              "O(1)",
+              "與 u 的鄰居數相關"
+            ],
+            [
+              "適合情境",
+              "邊較密集",
+              "邊較稀疏"
+            ]
+          ]
+        },
+        "paragraphs": [
+          "對無向圖，矩陣一般是對稱的；計算邊數時每條無向邊會被算到兩次。"
+        ]
+      },
+      {
+        "heading": "BFS：一層一層擴展",
+        "paragraphs": [
+          "BFS 利用 Queue 先進先出，依照距起點的邊數逐層走訪。無權圖中，BFS 可得到以邊數計算的最短路徑。"
+        ],
+        "code": "queue.push(start);\nvisited[start] = true;\nwhile (!queue.empty()) {\n    u = queue.pop_front();\n    for (v in adjacent[u]) {\n        if (!visited[v]) {\n            visited[v] = true;\n            queue.push(v);\n        }\n    }\n}"
+      },
+      {
+        "heading": "DFS：沿路走到底再回溯",
+        "paragraphs": [
+          "DFS 可用遞迴或 Stack 實作。先延伸一條路徑，遇到無法再往下的分支就回溯。"
+        ],
+        "bullets": [
+          "BFS 關鍵容器：Queue。",
+          "DFS 關鍵容器：Stack／遞迴堆疊。",
+          "使用相鄰串列且每個頂點、邊至多處理固定次數時，兩者都可達 O(V+E)。"
+        ],
+        "example": "圖形的走訪順序可能因鄰居排列不同而改變，因此解題時要先檢查題目是否指定從小到大拜訪。"
+      }
+    ]
+  },
+  {
+    "id": "ds-recursion-dp",
+    "category": "ds",
+    "title": "遞迴與動態規劃",
+    "subtitle": "Factorial、Fibonacci、重疊子問題",
+    "level": "進階",
+    "minutes": 7,
+    "summary": "把遞迴函數拆解成終止條件與遞迴關係，再理解 DP 為何能避免重複計算。",
+    "tags": [
+      "Recursion",
+      "DP",
+      "Fibonacci",
+      "Time Complexity"
+    ],
+    "source": "（1）介紹-時間複雜度.pdf",
+    "sourceType": "Goodnotes 手寫筆記整理",
+    "updated": "2026-11-16",
+    "sections": [
+      {
+        "heading": "遞迴的兩個必要部分",
+        "bullets": [
+          "Base Case：能直接返回答案的終止條件。",
+          "Recursive Case：把問題縮小並呼叫自己。"
+        ],
+        "code": "int factorial(int n) {\n    if (n <= 1) return 1;\n    return n * factorial(n - 1);\n}"
+      },
+      {
+        "heading": "Fibonacci 為什麼適合 DP？",
+        "paragraphs": [
+          "F(n)=F(n−1)+F(n−2)。直接遞迴會反覆計算相同的 F(k)，重疊子問題導致計算量快速增加。"
+        ],
+        "code": "int fib(int n) {\n    if (n <= 1) return n;\n    int a = 0, b = 1;\n    for (int i = 2; i <= n; i++) {\n        int next = a + b;\n        a = b; b = next;\n    }\n    return b;\n}"
+      },
+      {
+        "heading": "複雜度對照",
+        "table": {
+          "headers": [
+            "方法",
+            "時間",
+            "額外空間"
+          ],
+          "rows": [
+            [
+              "直接遞迴 Fibonacci",
+              "指數級（約 O(φⁿ)）",
+              "O(n) 呼叫深度"
+            ],
+            [
+              "迭代 DP Fibonacci",
+              "O(n)",
+              "O(1)"
+            ],
+            [
+              "階乘遞迴",
+              "O(n)",
+              "O(n) 呼叫深度"
+            ]
+          ]
+        },
+        "example": "當題目出現「同一個子問題反覆計算」，要想到 Memoization（記憶化）或 Tabulation（表格法）。"
+      }
+    ]
+  },
+  {
+    "id": "ai-diabetes-preprocess",
+    "category": "ai",
+    "title": "糖尿病資料前處理",
+    "subtitle": "KNN 補值、Isolation Forest 與資料洩漏",
+    "level": "研究實例",
+    "minutes": 7,
+    "summary": "從個人專題筆記理解資料切分、缺值填補、異常值處理與避免 Data Leakage 的原則。",
+    "tags": [
+      "KNN Imputer",
+      "Data Leakage",
+      "Isolation Forest",
+      "Python"
+    ],
+    "source": "Diabetes_Project_Notes.pdf",
+    "sourceType": "個人專題複習筆記",
+    "updated": "2026-11-16",
+    "sections": [
+      {
+        "heading": "先區分訓練集與測試集",
+        "paragraphs": [
+          "原始專題複習筆記記載訓練資料 614 筆、測試資料 154 筆。若在切分前用全部資料估計 KNN 補值或標準化參數，就可能讓測試資料的分布資訊提前進入訓練流程。"
+        ],
+        "bullets": [
+          "先切分 train/test；若做交叉驗證，應在各 fold 內 fit 前處理。",
+          "KNNImputer、Scaler 只能在訓練資料 fit，再對測試資料 transform。",
+          "若使用距離型補值，務必考慮不同特徵量尺的影響。"
+        ]
+      },
+      {
+        "heading": "KNN 補值",
+        "paragraphs": [
+          "KNNImputer 會使用特徵空間中接近的樣本估計缺值。筆記設定 k=5，並將特定欄位的 0 視為缺失。"
+        ],
+        "example": "當五個近鄰的 BMI 分別是 24、25、26、27、28，等權平均的示例補值是 26。此為教學示例，不是實際病人的預測。"
+      },
+      {
+        "heading": "Isolation Forest",
+        "paragraphs": [
+          "Isolation Forest 透過隨機切割資料，利用隔離樣本所需的路徑長度判斷異常程度。筆記設定 contamination=0.03 作為預期異常比例。"
+        ],
+        "bullets": [
+          "較容易被隔離的點，通常異常分數較高。",
+          "異常值不一定是錯誤資料，刪除前要確認來源與研究目的。"
+        ]
+      },
+      {
+        "heading": "研究方法注意事項",
+        "example": "資料洩漏不是「模型太準」才會發生；前處理若使用了測試集資訊，即使最終分數不高，也可能讓評估失真。"
+      }
+    ]
+  },
+  {
+    "id": "ai-diabetes-clustering",
+    "category": "ai",
+    "title": "Ward 階層分群",
+    "subtitle": "從 Age、BMI、Glucose 到三群的非監督式分析",
+    "level": "研究實例",
+    "minutes": 5,
+    "summary": "理解 Ward 合併準則、分群標籤只是 ID，以及前處理分級圖與群集圖的不同。",
+    "tags": [
+      "Clustering",
+      "Ward",
+      "BMI",
+      "Unsupervised"
+    ],
+    "source": "Diabetes_Project_Notes.pdf",
+    "sourceType": "個人專題複習筆記",
+    "updated": "2026-11-16",
+    "sections": [
+      {
+        "heading": "前處理的分級，不等於分群",
+        "paragraphs": [
+          "筆記中的 BMI_Class、Glucose_Class、Pregnancy_Class 是各欄位的分級統計；後續 Ward 分群才產生 Cluster Label。不能把 BMI 類別代碼直接當作分群編號。"
+        ]
+      },
+      {
+        "heading": "Ward 的核心準則",
+        "paragraphs": [
+          "Ward 是凝聚式階層分群，每次選擇讓群內平方和（Within-Cluster Sum of Squares）增加最少的兩群合併。"
+        ],
+        "example": "若兩個單點群資料分別是 2 與 4，合併中心是 3；平方和由 0 變為 (2−3)²+(4−3)²=2。"
+      },
+      {
+        "heading": "專題設定",
+        "bullets": [
+          "使用 Age、BMI、Glucose 作為分群特徵。",
+          "Outcome 不參與分群，因此屬非監督式分析。",
+          "筆記指出最後採三群；0、1、2 為識別碼，不代表風險排名。"
+        ],
+        "example": "若要判斷哪一群風險較高，須另看群內特徵分布與結果變數，不能只看 cluster ID 的大小。"
+      }
+    ]
+  },
+  {
+    "id": "ai-model-evaluation",
+    "category": "ai",
+    "title": "ROC AUC、PR 與混淆矩陣",
+    "subtitle": "分清 Accuracy、Recall、F1、AUC 與 AP",
+    "level": "必讀",
+    "minutes": 8,
+    "summary": "用真陽性、偽陽性等四種結果建立模型評估指標，再理解 ROC 與 PR 曲線。",
+    "tags": [
+      "ROC AUC",
+      "Precision",
+      "Recall",
+      "F1",
+      "AP"
+    ],
+    "source": "Diabetes_Project_Notes.pdf",
+    "sourceType": "個人專題複習筆記",
+    "updated": "2026-11-16",
+    "sections": [
+      {
+        "heading": "混淆矩陣四格",
+        "table": {
+          "headers": [
+            "",
+            "實際正類",
+            "實際負類"
+          ],
+          "rows": [
+            [
+              "預測正類",
+              "TP：抓對的正例",
+              "FP：誤報"
+            ],
+            [
+              "預測負類",
+              "FN：漏掉的正例",
+              "TN：判對的負例"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "常見指標的公式",
+        "table": {
+          "headers": [
+            "指標",
+            "公式",
+            "重點"
+          ],
+          "rows": [
+            [
+              "Accuracy",
+              "(TP + TN) / N",
+              "整體正確比例"
+            ],
+            [
+              "Precision",
+              "TP / (TP + FP)",
+              "預測正類有多準"
+            ],
+            [
+              "Recall / TPR",
+              "TP / (TP + FN)",
+              "實際正類抓到多少"
+            ],
+            [
+              "Specificity",
+              "TN / (TN + FP)",
+              "負類辨識率"
+            ],
+            [
+              "F1",
+              "2PR / (P + R)",
+              "綜合精確率與召回率"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "一個計算例子",
+        "example": "若 TP=18、FP=6、FN=2、TN=74：Precision=18/24=0.75；Recall=18/20=0.90；FPR=6/80=0.075。"
+      },
+      {
+        "heading": "ROC AUC 與 AP",
+        "paragraphs": [
+          "ROC 曲線橫軸為 FPR，縱軸為 TPR；變動分類閾值可得到多組點。AUC 衡量模型對正、負例的排序能力。PR 曲線則以 Recall 為橫軸、Precision 為縱軸，AP 用不同召回率增量下的 Precision 加權彙總。"
+        ],
+        "bullets": [
+          "AUC 不等於某個閾值下的 Accuracy。",
+          "類別不平衡時，PR 曲線與 AP 通常能提供重要補充資訊。",
+          "筆記中的模型比較圖在顯示精度下三個模型 ROC AUC 皆約 0.81；不能據此推論效能顯著不同。"
+        ]
+      }
+    ]
+  }
+]

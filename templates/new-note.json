@@ -1,0 +1,27 @@
+{
+  "id": "category-topic-in-english",
+  "category": "ds",
+  "title": "主題中文名稱",
+  "subtitle": "一句話說明本篇範圍",
+  "level": "入門",
+  "minutes": 5,
+  "summary": "文章摘要：40–80 字，說明讀者可以學到什麼。",
+  "tags": ["tag-one", "tag-two"],
+  "source": "Goodnotes 原始檔名.pdf",
+  "sourceType": "Goodnotes 手寫筆記整理",
+  "updated": "YYYY-MM-DD",
+  "sections": [
+    {
+      "heading": "核心概念",
+      "paragraphs": ["概念描述，使用繁體中文。"],
+      "bullets": ["關鍵重點一", "關鍵重點二"],
+      "example": "原創的小例子；若涉及實驗結果，請明確註記來源或待核實。"
+    },
+    {
+      "heading": "延伸與應用",
+      "paragraphs": ["可以在此補充文字。"],
+      "table": {"headers": ["欄位一", "欄位二"], "rows": [["示例 A", "示例 B"]]},
+      "code": "int main(void) { return 0; }"
+    }
+  ]
+}

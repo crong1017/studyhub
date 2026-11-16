@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="StudyHub｜將 Goodnotes 筆記整理成可搜尋、可延伸的學習知識庫。">
+  <meta name="color-scheme" content="light dark">
+  <title>StudyHub — Goodnotes 學習知識庫</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/site.js"></script>
+</head>
+<body data-page="home">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="StudyHub 首頁"><span class="brand-mark">S</span><span>Study<span class="brand-accent">Hub</span></span><span class="brand-dot"></span></a>
+      <nav class="top-links" aria-label="主要導覽"><a class="active" href="index.html">筆記首頁</a><a href="about.html">關於專案</a></nav>
+      <button class="theme-button" id="theme-toggle" aria-label="切換明暗主題" title="切換明暗主題">☾</button>
+    </div>
+  </header>
+  <div class="shell">
+    <aside class="sidebar" aria-label="側邊欄">
+      <div class="sidebar-caption">WORKSPACE</div>
+      <a class="side-link selected" href="index.html"><span>▦</span> 所有筆記</a>
+      <div class="sidebar-caption space-top">學習領域</div>
+      <div id="sidebar-categories">
+        <button type="button" class="side-link" data-category="cs"><span>◈</span> 計算機概論</button>
+        <button type="button" class="side-link" data-category="ds"><span>⌘</span> 資料結構與演算法</button>
+        <button type="button" class="side-link" data-category="ai"><span>✦</span> AI 與研究筆記</button>
+      </div>
+      <div class="sidebar-panel"><div class="mini-icon">✧</div><strong>從筆記到知識庫</strong><p>Goodnotes PDF → AI 整理 → 統一格式 → 可搜尋的文章。</p><a href="about.html">了解開發流程 <span aria-hidden="true">↗</span></a></div>
+    </aside>
+    <main class="main-content">
+      <div class="eyebrow"><span class="pulse"></span> YOUR LEARNING SPACE</div>
+      <section class="hero" aria-labelledby="hero-title"><div class="hero-text"><div class="hero-overline">LEARN · ORGANIZE · GROW</div><h1 id="hero-title">讓每一頁筆記，<br><em>都成為成長的起點。</em></h1><p>從 Goodnotes 手寫筆記出發，把複雜的觀念整理成清晰、可搜尋、可持續擴充的個人學習知識庫。</p><a class="hero-cta" href="#notes">探索學習筆記 <span aria-hidden="true">↘</span></a></div><div class="hero-art" aria-hidden="true"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="art-card back"><span class="art-line long"></span><span class="art-line"></span><span class="art-line short"></span></div><div class="art-card front"><span class="art-card-head">✦  YOUR NOTES</span><span class="art-pill">BFS</span><span class="art-pill">AUC</span><span class="art-pill">Heap</span><div class="art-graph"><i></i><i></i><i></i><i></i><i></i></div></div></div></section>
+      <section class="metrics" aria-label="網站統計"><div><strong id="count-notes">9</strong><span>篇精選筆記</span></div><div><strong id="count-categories">3</strong><span>個學習領域</span></div><div><strong id="count-sections">34</strong><span>個整理章節</span></div><div class="metrics-note"><span class="metrics-star">✧</span><div><b>持續更新中</b><span>每篇筆記都有共同的內容結構</span></div></div></section>
+      <section id="notes" class="notes-section" aria-labelledby="notes-title">
+        <div class="section-header"><div><div class="section-eyebrow">EXPLORE THE LIBRARY</div><h2 id="notes-title">學習筆記 <span class="muted">/ Notes</span></h2><p>從基礎觀念到專題研究，找到下一個想深入的主題。</p></div><div class="section-icon" aria-hidden="true">✳</div></div>
+        <div class="toolbar"><div class="search-shell"><span class="search-icon" aria-hidden="true">⌕</span><input type="search" id="note-search" placeholder="搜尋筆記、概念、公式、關鍵字…" autocomplete="off" aria-label="搜尋筆記"><span class="search-kbd">/</span></div><div class="filter-row" id="category-filters" aria-label="分類篩選"><button type="button" data-category="all" class="filter-chip active">全部</button><button type="button" data-category="cs" class="filter-chip">計算機概論</button><button type="button" data-category="ds" class="filter-chip">資料結構</button><button type="button" data-category="ai" class="filter-chip">AI × 研究</button></div></div>
+        <div class="result-meta"><span id="result-count">正在載入筆記…</span><span class="result-meta-right">依主題分類</span></div>
+        <div id="notes-grid" class="notes-grid" aria-live="polite"></div>
+        <div id="empty-state" class="empty-state" hidden><span class="empty-illustration">⌕</span><h3>沒有找到符合的筆記</h3><p>試試較短的關鍵字，或選擇其他分類。</p><button id="reset-search" type="button" class="reset-button">清除搜尋條件</button></div>
+      </section>
+      <footer class="footer"><span>© 2026 StudyHub · Built from Goodnotes, guided by AGENTS.md</span><span>Made for curious minds ✦</span></footer>
+    </main>
+  </div>
+</body>
+</html>
